@@ -1,4 +1,4 @@
-from modulo_estruturas.LinkedList import LinkedList, Node
+from modulo_estruturas.linked_list import LinkedList, Node
 
 print('===============INICIO=====================')
 no1 = Node(1)
