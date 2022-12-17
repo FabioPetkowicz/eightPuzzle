@@ -27,20 +27,35 @@ class LinkedList:
 
     ##19 minutos
     def __len__(self):
+        '''sobrecarga de operador Python. Uso: len(lista)'''
         return self._size
 
     def get(self, index):
         pass
 
-    def __getitem__(self):
-        # a = lista[6]
-        self.index
-
-    def __setitem__(self, index, elem):
-        #lista[5] = 9
+    def __getitem__(self, index):
+        '''sobrecarga de operador Python. Uso: lista[index]'''
         pointer = self.head
         for i in range(index):
             if pointer:
                 pointer = pointer.next
             else:
                 raise IndexError('list index out of range')
+        if pointer:
+            return pointer.data
+        else:
+            raise IndexError('list index out of range')
+
+    def __setitem__(self, index, elem):
+        '''sobrecarga de operador Python. Uso: lista[index] = elem'''
+        pointer = self.head
+        for i in range(index):
+            if pointer:
+                pointer = pointer.next
+            else:
+                raise IndexError('list index out of range')
+        if pointer:
+            pointer.data = elem
+        else:
+            raise IndexError('list index out of range')
+

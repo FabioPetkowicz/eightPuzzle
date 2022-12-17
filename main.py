@@ -106,8 +106,3 @@ print('-------------------------------------------------')
 print('Imprimindo Lista de Tuplas Ação/Estado Atingido: ')
 print(lista_tuplas_acao_estado)
 print('-------------------------------------------------')
-import networkx as nx
-G = nx.Graph()
-G.add_node(1)
-G.add_node(2)
-print('Nodos incluidos: ', G.nodes())
