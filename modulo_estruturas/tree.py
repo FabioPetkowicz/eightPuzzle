@@ -22,19 +22,16 @@ class Tree:
 
 
 if __name__ == "__main__":
-    tree = Tree()
-    n1 = Node(1)
-    tree.root = n1
+    tree = Tree(1)
+    tree.root.sun[0] = 0
+    tree.root.sun[1] = 1
+    tree.root.sun[2] = 2
+    tree.root.sun[3] = 3
+    ##n1 = Node(1)
+    ##tree.root = n1
 
     print(tree.root)
-
-'''
-    tree.root.left = Node(2)
-    tree.root.right = Node(3)
-
-    tree.imprime_pai_filhos()
-    print('-----------------------------------')
-    print('Valor do Nodo:', tree.root.__str__())
-    print('Filho da Esquerda:', tree.root.left)
-    print('Filho da Direita:', tree.root.right)
-'''
+    print(tree.root.sun[0])
+    print(tree.root.sun[1])
+    print(tree.root.sun[2])
+    print(tree.root.sun[3])

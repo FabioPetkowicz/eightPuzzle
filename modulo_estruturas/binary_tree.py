@@ -41,6 +41,17 @@ class BinaryTree:
 
 
 if __name__ == "__main__":
+    '''
+        tree = BinaryTree(1)
+        tree.root.left = Node(2)
+        tree.root.right = Node(3)
+
+        tree.imprime_pai_filhos()
+        print('-----------------------------------')
+        print('Valor do Nodo:', tree.root.__str__())
+        print('Filho da Esquerda:', tree.root.left)
+        print('Filho da Direita:', tree.root.right)
+    '''
     tree = BinaryTree()
     n1 = Node('a')
     n2 = Node('+')
@@ -65,14 +76,3 @@ if __name__ == "__main__":
     tree.simetric_traversal()
     print()
 
-'''
-    tree = BinaryTree(1)
-    tree.root.left = Node(2)
-    tree.root.right = Node(3)
-
-    tree.imprime_pai_filhos()
-    print('-----------------------------------')
-    print('Valor do Nodo:', tree.root.__str__())
-    print('Filho da Esquerda:', tree.root.left)
-    print('Filho da Direita:', tree.root.right)
-    '''
