@@ -3,6 +3,7 @@
 
 1) Install: Python 3.8
 https://www.python.org/downloads/release/python-380/
+
 ATENÇÃO: No Wisard, setar para adicionar a variável de ambiente. 
 
 2) Install: Library Networkx (não usada até o momento, mas instalada em caso de necessidade)
