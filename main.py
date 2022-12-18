@@ -1,11 +1,13 @@
+# -*- coding: utf-8 -*-
 from utils import support as sp
-# coding: utf-8
+
 def le_arquivo():
     '''Leitura do arquivo de Entrada'''
     linha = ''
     with open('input.txt', 'r') as arquivo:
         linha = arquivo.read()
     return linha
+
 
 '''==================MAIN=================='''
 if __name__ == "__main__":
