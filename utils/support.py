@@ -1,6 +1,5 @@
-
 def linha_to_matriz(str_puzzle):
-    '''Conversão do String para Matriz'''
+    """Conversão do String para Matriz"""
     linha1 = []
     linha2 = []
     linha3 = []
@@ -18,42 +17,56 @@ def linha_to_matriz(str_puzzle):
     mtz_puzzle.append(linha3)
     return mtz_puzzle
 
+
 def matriz_to_linha(mtz_puzzle):
+    """Conversão da Matriz para String"""
     puzzle_string = ''
     for i in range(0, len(mtz_puzzle)):
         for j in range(0, len(mtz_puzzle[i])):
             puzzle_string += mtz_puzzle[i][j]
 
-    print('====================')
-    print('Matriz Reconvertida a Linha:')
-    print(puzzle_string)
-    print('====================')
-
-##Conversão da Matriz para String
+    return puzzle_string
 
 
 def imprime_matriz(matriz):
+    """Imprime o Estado Atual da Matriz"""
     print(matriz[0])
     print(matriz[1])
     print(matriz[2])
 
-##Função de Impressão do Estado Atual da Matriz
 
-##Função Sucessor
 def sucessor(estado):
-    ##avaliar as possibilidades de transição
+    """"""
+    ###estado é um string: ex: '_23541687'
 
+    get_transicoes(estado)
     ##Cria a Lista de Tuplas
     lista = ['a', 'b', 'c']
     return lista
 
-def expande(nodo):
 
+def get_transicoes(estado):
+    ##avaliar as possibilidades de transição
+    avalia_transicoes(linha_to_matriz(estado))
+
+
+def avalia_transicoes(matriz):
+    for i in range(len(matriz)):
+        if matriz[i] == '_':
+            return i  ##@doing now
+
+
+'''
+def expande(nodo):
     sucessor(nodo.estado)
     print(nodo.estado)
+'''
 '''========================================================================================='''
+
+
 class Nodo:
     '''construtor default python'''
+
     def __init__(self, estado, pai, acao, custo):
         self.estado = estado
         self.pai = pai
@@ -61,9 +74,11 @@ class Nodo:
         self.custo = custo
         ##self.next = None ##? right_sun, left_sun,... --> NOP
 
-    '''toString default python'''
     def __repr__(self):
+        """override toString default python"""
         return '%s  %s %s %s' % (self.estado, self.pai, self.acao, self.custo)
+
+
 '''========================================================================================='''
 '''
 class Estado:

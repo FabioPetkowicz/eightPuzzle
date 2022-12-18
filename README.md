@@ -15,6 +15,7 @@ Tente rodar o arquivo: teste_networkx.py
 4) Install: Pycharm Community Edition
 
 Final Obs:
+
 Criar Projeto no Pycharm. 
 Ao criar um projeto Pycharm seta automaticamente o ambiente virtual como 'venv'.
 É baseado neste ambiente virtual é que este projeto roda.
