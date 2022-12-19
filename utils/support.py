@@ -46,13 +46,7 @@ def imprime_matriz(matriz):
 def sucessor(estado):
     """recebe string estado ex: '2_3541687';
        retorna uma lista de tuplas (ação, estado_atingido)"""
-    lista_de_tuplas = get_transicoes(linha_to_matriz(estado))
-
-    return lista_de_tuplas
-
-
-def get_transicoes(matriz):
-    """retorna as transicoes possiveis"""
+    matriz = linha_to_matriz(estado)
     lin = -1
     col = -1
     for i in range(0, len(matriz)):
@@ -64,72 +58,54 @@ def get_transicoes(matriz):
 
     return get_acoes(lin, col, matriz)
 
-
 def get_acoes(lin, col, matriz):
     lista_acao_estadoatingido = []
     str_puzzle = ''
 
     if lin == 0:
-        if col == 0:  # direita; abaixo;
-            #tupla1 = (DIREITA, get_string_acao(lin, col, matriz, DIREITA))
-            #tupla2 = (ABAIXO, get_string_acao(lin, col, matriz, ABAIXO))
+        if col == 0:  # direita; abaixo; = ok
             lista_acao_estadoatingido.append((DIREITA, get_string_acao(lin, col, matriz, DIREITA)))
             lista_acao_estadoatingido.append((ABAIXO, get_string_acao(lin, col, matriz, ABAIXO)))
 
-        elif col == 1:  # esquerda; direita; abaixo; ##HOUSTON
+        elif col == 1:  # esquerda; direita; abaixo; = ok
             lista_acao_estadoatingido.append((ESQUERDA, get_string_acao(lin, col, matriz, ESQUERDA)))
             lista_acao_estadoatingido.append((DIREITA, get_string_acao(lin, col, matriz, DIREITA)))
             lista_acao_estadoatingido.append((ABAIXO, get_string_acao(lin, col, matriz, ABAIXO)))
 
-        elif col == 2:  # direita; abaixo;
-            tupla1 = (DIREITA, get_string_acao(lin, col, matriz, DIREITA))
-            tupla2 = (ABAIXO, get_string_acao(lin, col, matriz, ABAIXO))
-            lista_acao_estadoatingido.append(tupla1)
-            lista_acao_estadoatingido.append(tupla2)
+        elif col == 2:  # esquerda; abaixo;
+            lista_acao_estadoatingido.append((ESQUERDA, get_string_acao(lin, col, matriz, ESQUERDA)))
+            lista_acao_estadoatingido.append((ABAIXO, get_string_acao(lin, col, matriz, ABAIXO)))
 
         elif lin == 1:
-            if col == 0: # acima; direita; abaixo;
-                tupla1 = (ACIMA, get_string_acao(lin, col, matriz, ACIMA))
-                tupla2 = (DIREITA, get_string_acao(lin, col, matriz, DIREITA))
-                tupla3 = (ABAIXO, get_string_acao(lin, col, matriz, ABAIXO))
-                lista_acao_estadoatingido.append(tupla1)
-                lista_acao_estadoatingido.append(tupla2)
-                lista_acao_estadoatingido.append(tupla3)
-            elif col == 1: # esquerda; acima; direita; abaixo;
-                tupla1 = (ESQUERDA, get_string_acao(lin, col, matriz, ESQUERDA))
-                tupla2 = (ACIMA, get_string_acao(lin, col, matriz, ACIMA))
-                tupla3 = (DIREITA, get_string_acao(lin, col, matriz, DIREITA))
-                tupla4 = (ABAIXO, get_string_acao(lin, col, matriz, ABAIXO))
-                lista_acao_estadoatingido.append(tupla1)
-                lista_acao_estadoatingido.append(tupla2)
-                lista_acao_estadoatingido.append(tupla3)
-                lista_acao_estadoatingido.append(tupla4)
-            elif col == 2: # esquerda; acima; abaixo;
-                tupla1 = (ESQUERDA, get_string_acao(lin, col, matriz, ESQUERDA))
-                tupla2 = (ACIMA, get_string_acao(lin, col, matriz, ACIMA))
-                tupla3 = (ABAIXO, get_string_acao(lin, col, matriz, ABAIXO))
-                lista_acao_estadoatingido.append(tupla1)
-                lista_acao_estadoatingido.append(tupla2)
-                lista_acao_estadoatingido.append(tupla3)
+            if col == 0:  # acima; direita; abaixo;
+                lista_acao_estadoatingido.append((ACIMA, get_string_acao(lin, col, matriz, ACIMA)))
+                lista_acao_estadoatingido.append((DIREITA, get_string_acao(lin, col, matriz, DIREITA)))
+                lista_acao_estadoatingido.append((ABAIXO, get_string_acao(lin, col, matriz, ABAIXO)))
+
+            elif col == 1:  # esquerda; acima; direita; abaixo;
+                lista_acao_estadoatingido.append((ESQUERDA, get_string_acao(lin, col, matriz, ESQUERDA)))
+                lista_acao_estadoatingido.append((ACIMA, get_string_acao(lin, col, matriz, ACIMA)))
+                lista_acao_estadoatingido.append((DIREITA, get_string_acao(lin, col, matriz, DIREITA)))
+                lista_acao_estadoatingido.append((ABAIXO, get_string_acao(lin, col, matriz, ABAIXO)))
+
+            elif col == 2:  # esquerda; acima; abaixo;
+                lista_acao_estadoatingido.append((ESQUERDA, get_string_acao(lin, col, matriz, ESQUERDA)))
+                lista_acao_estadoatingido.append((ACIMA, get_string_acao(lin, col, matriz, ACIMA)))
+                lista_acao_estadoatingido.append((ABAIXO, get_string_acao(lin, col, matriz, ABAIXO)))
 
         elif lin == 2:
-            if col == 0: # acima; direita;
-                tupla1 = (ACIMA, get_string_acao(lin, col, matriz, ACIMA))
-                tupla2 = (DIREITA, get_string_acao(lin, col, matriz, DIREITA))
-                lista_acao_estadoatingido.append(tupla1)
-                lista_acao_estadoatingido.append(tupla2)
-            elif col == 1: # esquerda; acima; direita
-                tupla1 = (ESQUERDA, get_string_acao(lin, col, matriz, ESQUERDA))
-                tupla2 = (ACIMA, get_string_acao(lin, col, matriz, ACIMA))
-                tupla3 = (DIREITA, get_string_acao(lin, col, matriz, DIREITA))
-                lista_acao_estadoatingido.append(tupla1)
-                lista_acao_estadoatingido.append(tupla2)
-                lista_acao_estadoatingido.append(tupla3)
-            elif col == 2: # esquerda; acima
-                tupla1 = (ESQUERDA, get_string_acao(lin, col, matriz, ESQUERDA))
-                tupla2 = (ACIMA, get_string_acao(lin, col, matriz, ACIMA))
-                lista_acao_estadoatingido.append(tupla1)
-                lista_acao_estadoatingido.append(tupla2)
+            if col == 0:  # acima; direita;
+                lista_acao_estadoatingido.append((ACIMA, get_string_acao(lin, col, matriz, ACIMA)))
+                lista_acao_estadoatingido.append((DIREITA, get_string_acao(lin, col, matriz, DIREITA)))
+
+            elif col == 1:  # esquerda; acima; direita
+                lista_acao_estadoatingido.append((ESQUERDA, get_string_acao(lin, col, matriz, ESQUERDA)))
+                lista_acao_estadoatingido.append((ACIMA, get_string_acao(lin, col, matriz, ACIMA)))
+                lista_acao_estadoatingido.append((DIREITA, get_string_acao(lin, col, matriz, DIREITA)))
+
+            elif col == 2:  # esquerda; acima
+                lista_acao_estadoatingido.append((ESQUERDA, get_string_acao(lin, col, matriz, ESQUERDA)))
+                lista_acao_estadoatingido.append((ACIMA, get_string_acao(lin, col, matriz, ACIMA)))
 
     return lista_acao_estadoatingido
 
