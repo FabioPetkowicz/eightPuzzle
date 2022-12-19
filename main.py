@@ -24,15 +24,26 @@ if __name__ == "__main__":
     print('Matriz convertida a linha: ', str_result)
     print('==========================================')
 
+    print('-------------------------------------------------')
+    print('Chamada método: \"sucessor\"')
+    lista_acoes = sp.sucessor('2_3541687')
+    print('Imprimindo Lista de Tuplas Ação/Estado Atingido: ')
+    print(lista_acoes)
+    print('-------------------------------------------------')
+'''
+    print('-------------------------------------------------')
+    print('Chamada método: \"get_acoes\":')
+    lista_acoes = sp.get_acoes(0, 1, matriz)
+    print('Imprimindo Lista de Tuplas Ação/Estado Atingido: ')
+    print(lista_acoes)
+    print('-------------------------------------------------')
+'''
+
+
 '''
     no1 = sp.Nodo('estado1', 'pai1', 'acao1', 'custo1')
     print(no1.estado)
     print(no1)
     novo_estado = 's0'
     lista_tuplas_acao_estado = sp.sucessor(novo_estado)
-
-    print('-------------------------------------------------')
-    print('Imprimindo Lista de Tuplas Ação/Estado Atingido: ')
-    print(lista_tuplas_acao_estado)
-    print('-------------------------------------------------')
 '''

@@ -23,3 +23,5 @@ print('linha 1: ', matriz[1])
 print('====================')
 print(matriz.__contains__('6'))
 print(matriz.__contains__(['4', '5', '6']))
+
+print(dir(tuple))
