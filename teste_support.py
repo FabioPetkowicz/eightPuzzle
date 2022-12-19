@@ -1,4 +1,4 @@
-from utils import support as sp
+from modulo_estruturas import support as sp
 
 ## string de teste básico: '2_3541687'
 ## string de teste:        '_23541687'

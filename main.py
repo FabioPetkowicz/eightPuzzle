@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from utils import support as sp
+from modulo_estruturas import support as sp
 
 def le_arquivo():
     '''Leitura do arquivo de Entrada'''
@@ -25,10 +25,3 @@ if __name__ == "__main__":
     print('==========================================')
 
 
-'''
-    no1 = sp.Nodo('estado1', 'pai1', 'acao1', 'custo1')
-    print(no1.estado)
-    print(no1)
-    novo_estado = 's0'
-    lista_tuplas_acao_estado = sp.sucessor(novo_estado)
-'''

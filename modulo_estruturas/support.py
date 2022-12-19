@@ -166,15 +166,16 @@ def expande(nodo):
 
 
 class Nodo:
-    '''construtor default python'''
-
     def __init__(self, estado, pai, acao, custo):
         self.estado = estado
         self.pai = pai
         self.acao = acao
         self.custo = custo
-        ##self.next = None ##? right_sun, left_sun,... --> NOP
+        self.sun = [None, None, None, None]
 
     def __repr__(self):
         """override toString default python"""
         return '%s  %s %s %s' % (self.estado, self.pai, self.acao, self.custo)
+
+    def sun(self, index):
+        return self.sun[index]
