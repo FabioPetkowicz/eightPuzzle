@@ -131,7 +131,16 @@ def dfs(estado):
 
 def eh_solucionavel(estado):
     """verifica se o caminho para o estado forma conjuntos disjuntos"""
-    total_inversores = conta_inversores([j for sub in estado for j in sub])
+    total_inv = conta_inversores([j for sub in estado for j in sub])
 
-    return (total_inversores % 2) == 0
+    return (total_inv % 2) == 0
 
+
+def conta_inversores(estado):
+    total_inv = 0
+    for i in range(0, 9):
+        for j in range((i + 1), 9):
+            if estado[j] != ESPACO_VAZIO and estado[i] != ESPACO_VAZIO and estado[i] > estado[j]:
+                total_inv += 1
+
+    return total_inv
