@@ -1,13 +1,12 @@
-
-
 ESQUERDA = 'esquerda'
 ACIMA = 'acima'
 DIREITA = 'direita'
 ABAIXO = 'abaixo'
 ESPACO_VAZIO = '_'
 
+
 class Nodo:
-    def __init__(self, estado = '', pai = None, acao = None, custo = 0):
+    def __init__(self, estado=str, pai=None, acao=None, custo=0):
         """
         Inicializa o nodo com os atributos recebidos
         :param estado:str, representacao do estado do 8-puzzle
@@ -21,7 +20,8 @@ class Nodo:
         self.custo = custo
 
     def __repr__(self):
-        return '%s  %s %s %s' % (self.estado, self.pai, self.acao, self.custo)
+        return 'Ação: %s \nEstado: %s \nPai: %s \nCusto: %s' % (self.acao, self.estado, self.pai, self.custo)
+
 
 def sucessor(estado):
     """
@@ -71,3 +71,19 @@ def sucessor(estado):
         lista_de_tuplas.append((ABAIXO, aux))
 
     return lista_de_tuplas
+
+def expande(nodo):
+    """
+    Recebe um nodo (objeto da classe Nodo) e retorna um iterable de nodos.
+    Cada nodo do iterable é contém um estado sucessor do nó recebido.
+    :param nodo: objeto da classe Nodo
+    :return: lista_de_nodos
+    """
+    lista_de_nodos = []
+    l = sucessor(nodo.estado)
+
+    for tupla in l:
+        aux = Nodo(tupla[1], nodo, tupla[0], nodo.custo + 1)
+        lista_de_nodos.append(aux)
+
+    return lista_de_nodos
