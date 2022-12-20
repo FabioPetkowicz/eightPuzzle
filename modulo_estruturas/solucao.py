@@ -1,3 +1,5 @@
+from builtins import list
+
 OBJETIVO = '12345678_'
 ESQUERDA = 'esquerda'
 ACIMA = 'acima'
@@ -82,9 +84,9 @@ def expande(nodo):
     :return: lista_de_nodos
     """
     lista_de_nodos = []
-    l = sucessor(nodo.estado)
+    lista_de_tuplas = sucessor(nodo.estado)
 
-    for tupla in l:
+    for tupla in lista_de_tuplas:
         aux = Nodo(tupla[1], nodo, tupla[0], nodo.custo + 1)
         lista_de_nodos.append(aux)
 
