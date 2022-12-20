@@ -19,19 +19,14 @@ if __name__ == "__main__":
     print(lista_acoes2)
     print('-------------------------------------------------')
 
-##__init__(self, estado='', pai=None, acao=None, custo=0)
+    ##__init__(self, estado='', pai=None, acao=None, custo=0)
     nodo = Nodo('2_3541687', None, None, 0)
     print(nodo)
 
     print('-------------------------------------------------')
-    lista_de_nodos = []
-    l = sol.sucessor(nodo.estado)
+    lista_de_nodos_sucessores = sol.sucessor(nodo.estado)
 
-    for tupla in l:
-        aux = Nodo(tupla[1], nodo, tupla[0], nodo.custo + 1)
-        lista_de_nodos.append(aux)
-
-    for n in lista_de_nodos:
+    for n in lista_de_nodos_sucessores:
         print('---------------')
         print(n)
         print('---------------')

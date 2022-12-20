@@ -1,3 +1,4 @@
+OBJETIVO = '12345678_'
 ESQUERDA = 'esquerda'
 ACIMA = 'acima'
 DIREITA = 'direita'
@@ -20,7 +21,7 @@ class Nodo:
         self.custo = custo
 
     def __repr__(self):
-        return 'Ação: %s \nEstado: %s \nPai: %s \nCusto: %s' % (self.acao, self.estado, self.pai, self.custo)
+        return 'Ação: %s \nEstado: %s\nPai: %s \nCusto: %s' % (self.acao, self.estado, self.pai, self.custo)
 
 
 def sucessor(estado):
@@ -72,6 +73,7 @@ def sucessor(estado):
 
     return lista_de_tuplas
 
+
 def expande(nodo):
     """
     Recebe um nodo (objeto da classe Nodo) e retorna um iterable de nodos.
@@ -87,3 +89,49 @@ def expande(nodo):
         lista_de_nodos.append(aux)
 
     return lista_de_nodos
+
+
+def dfs(estado):
+    """
+    Recebe um estado (string), executa a busca em PROFUNDIDADE e
+    retorna uma lista de ações que leva do
+    estado recebido até o objetivo ("12345678_").
+    Caso não haja solução a partir do estado recebido, retorna None
+    :param estado: str
+    :return: str or None
+    """
+    if not eh_solucionavel(estado):
+        return None
+    else:
+        X = set()
+        F = dict()
+        caminho = []
+        estado_inicial = Nodo(estado)
+
+        F[estado_inicial.estado] = estado_inicial
+
+        while F != {}:
+            v = F.popitem()[1]
+
+            if v.estado == OBJETIVO:
+                aux = v
+                while aux.pai is not None:
+                    caminho.insert(0, aux.acao)
+                    aux = aux.pai
+                return caminho
+
+            if v.estado not in X:
+                X.add(v.estado)
+                vizinhos = expande(v)
+                for vizinho in vizinhos:
+                    F[vizinho.estado] = vizinho
+
+    return None
+
+
+def eh_solucionavel(estado):
+    """verifica se o caminho para o estado forma conjuntos disjuntos"""
+    total_inversores = conta_inversores([j for sub in estado for j in sub])
+
+    return (total_inversores % 2) == 0
+
