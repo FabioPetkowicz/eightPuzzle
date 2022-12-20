@@ -21,3 +21,14 @@ Ao criar um projeto Pycharm seta automaticamente o ambiente virtual como 'venv'.
 É baseado neste ambiente virtual é que este projeto roda.
 Pode ser necessário instalar a Networkx (ou outra library) no ambiente virtual.
 Library References: https://pypi.org/
+
+#Bibliotecas Utilizadas:
+numpy
+
+---------------------------------------------------------------------
+Instalação das Bibliotecas em Ambiente Virtual (venv) no Pycharm:
+1-Abrir o terminal;
+2-utilizar pip install <nome_da_biblioteca>
+->onde o nome da biblioteca pode ser encontrado em: https://pypi.org/
+---------------------------------------------------------------------
+

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from modulo_estruturas import support as sp
+import numpy as np
 
 def le_arquivo():
     '''Leitura do arquivo de Entrada'''
@@ -24,4 +25,4 @@ if __name__ == "__main__":
     print('Matriz convertida a linha: ', str_result)
     print('==========================================')
 
-
+    a = np.array([1, 2, 3])
