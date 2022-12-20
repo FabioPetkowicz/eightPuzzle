@@ -97,8 +97,8 @@ def dfs(estado):
     retorna uma lista de ações que leva do
     estado recebido até o objetivo ("12345678_").
     Caso não haja solução a partir do estado recebido, retorna None
-    :param estado: str
-    :return: str or None
+    @param: str
+    @return: str or None
     """
     if not eh_solucionavel(estado):
         return None
@@ -130,7 +130,10 @@ def dfs(estado):
 
 
 def eh_solucionavel(estado):
-    """verifica se o caminho para o estado forma conjuntos disjuntos"""
+    """ recebe um estado e retorna true se o estado possui solução ou false se não tem solução
+        @param: str
+        @return: bool
+    """
     total_inv = conta_inversores([j for sub in estado for j in sub])
 
     return (total_inv % 2) == 0
@@ -140,7 +143,7 @@ def conta_inversores(estado):
     total_inv = 0
     for i in range(0, 9):
         for j in range((i + 1), 9):
-            if estado[j] != ESPACO_VAZIO and estado[i] != ESPACO_VAZIO and estado[i] > estado[j]:
+            if estado[i] != ESPACO_VAZIO and estado[j] != ESPACO_VAZIO and estado[i] > estado[j]:
                 total_inv += 1
 
     return total_inv
